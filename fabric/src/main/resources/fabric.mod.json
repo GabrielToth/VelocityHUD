@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "id": "velocityhud",
+  "version": "1.0.0",
+  "name": "VelocityHUD",
+  "description": "Displays real-time velocity on HUD",
+  "authors": ["GabrielToth"],
+  "contact": {
+    "homepage": "https://gabrieltoth.com"
+  },
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.gabrieltoth.velocityhud.fabric.VelocityHUDFabric"]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21"
+  }
+}

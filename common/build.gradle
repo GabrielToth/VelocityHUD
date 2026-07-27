@@ -1,0 +1,29 @@
+plugins {
+    id 'java-library'
+}
+
+base {
+    archivesName = "${project.mod_id}-common"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+}
+
+dependencies {
+    compileOnly "org.spongepowered:mixin:${project.mixin_version}"
+}
+
+configurations {
+    namedElements {
+        canBeResolved = false
+        canBeConsumed = true
+    }
+}
+
+artifacts {
+    namedElements(jar)
+}
