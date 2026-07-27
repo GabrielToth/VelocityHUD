@@ -48,8 +48,8 @@ public class VelocityCalculator {
     private static double toMetersPerSecond(double value, Unit unit) {
         return switch (unit) {
             case BLOCKS_PER_SECOND -> value * BLOCKS_TO_METERS;
-            case KILOMETERS_PER_HOUR -> (value / SECONDS_TO_HOURS) / METERS_TO_KM;
-            case MILES_PER_HOUR -> (value / SECONDS_TO_HOURS) / METERS_TO_MILES;
+            case KILOMETERS_PER_HOUR -> value / 3.6;
+            case MILES_PER_HOUR -> value / 2.236936;
             case METERS_PER_SECOND -> value;
         };
     }
@@ -57,14 +57,14 @@ public class VelocityCalculator {
     private static double fromMetersPerSecond(double metersPerSecond, Unit unit) {
         return switch (unit) {
             case BLOCKS_PER_SECOND -> metersPerSecond / BLOCKS_TO_METERS;
-            case KILOMETERS_PER_HOUR -> metersPerSecond * METERS_TO_KM * SECONDS_TO_HOURS;
-            case MILES_PER_HOUR -> metersPerSecond * METERS_TO_MILES * SECONDS_TO_HOURS;
+            case KILOMETERS_PER_HOUR -> metersPerSecond * 3.6;
+            case MILES_PER_HOUR -> metersPerSecond * 2.236936;
             case METERS_PER_SECOND -> metersPerSecond;
         };
     }
     
     public static String format(double value, Unit unit, int decimalPlaces) {
-        String formatted = String.format("%." + decimalPlaces + "f", value);
+        String formatted = String.format(java.util.Locale.ROOT, "%." + decimalPlaces + "f", value);
         String unitSuffix = switch (unit) {
             case BLOCKS_PER_SECOND -> " b/s";
             case KILOMETERS_PER_HOUR -> " km/h";
