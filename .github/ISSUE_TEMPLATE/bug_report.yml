@@ -1,0 +1,39 @@
+name: Bug Report
+description: Create a report to help us improve VelocityHUD
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for taking the time to fill out this bug report!
+  - type: dropdown
+    id: loader
+    attributes:
+      label: Mod Loader
+      description: Which mod loader are you using?
+      options:
+        - Fabric
+        - Forge
+        - Quilt
+        - NeoForge
+    validations:
+      required: true
+  - type: input
+    id: mc-version
+    attributes:
+      label: Minecraft Version
+      description: e.g. 1.20.1, 1.21.1
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Also tell us what you expected to happen
+    validations:
+      required: true
+  - type: textarea
+    id: crash-report
+    attributes:
+      label: Crash Report / Log
+      description: Please paste your crash report or latest.log here
+      render: text
