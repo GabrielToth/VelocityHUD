@@ -1,0 +1,33 @@
+plugins {
+    id 'org.quiltmc.loom' version '1.7.4'
+}
+
+base {
+    archivesName = "${project.mod_id}-quilt"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 17
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "org.quiltmc:quilt-loader:${project.quilt_loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    implementation project(path: ':common', configuration: 'namedElements')
+}
+
+loom {
+    if (project(':common').file('src/main/resources/velocityhud.accesswidener').exists()) {
+        accessWidenerPath = project(':common').file('src/main/resources/velocityhud.accesswidener')
+    }
+}

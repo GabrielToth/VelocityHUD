@@ -1,0 +1,23 @@
+plugins {
+    id 'net.minecraftforge.gradle' version '6.0.29'
+}
+
+base {
+    archivesName = "${project.mod_id}-neoforge"
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+    withSourcesJar()
+}
+
+minecraft {
+    mappings channel: 'official', version: project.minecraft_version
+}
+
+dependencies {
+    minecraft "net.minecraftforge:forge:${project.minecraft_version}-${project.forge_version}"
+    implementation project(path: ':common', configuration: 'namedElements')
+}

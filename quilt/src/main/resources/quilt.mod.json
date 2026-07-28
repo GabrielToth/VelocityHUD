@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "com.gabrieltoth",
+    "id": "velocityhud",
+    "version": "${version}",
+    "metadata": {
+      "name": "VelocityHUD",
+      "description": "Displays real-time velocity on the HUD",
+      "authors": {
+        "GabrielToth": "Owner"
+      },
+      "contact": {
+        "homepage": "https://github.com/GabrielToth/VelocityHUD",
+        "issues": "https://github.com/GabrielToth/VelocityHUD/issues",
+        "sources": "https://github.com/GabrielToth/VelocityHUD"
+      },
+      "license": "MIT"
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "client": [
+        "com.gabrieltoth.velocityhud.quilt.VelocityHUDQuilt"
+      ]
+    },
+    "depends": [
+      {
+        "id": "quilt_loader",
+        "versions": ">=0.25.0"
+      },
+      {
+        "id": "minecraft",
+        "versions": ">=1.20.1"
+      }
+    ]
+  }
+}
